@@ -1,0 +1,8 @@
+<div>
+    <div className='flex justify-between mb-2'>
+        <label for={{name}} class='text-color-primary-marine-blue text-md font-medium'>{{label}}</label>
+        <div class="text-color-berry-red font-medium"  [ngClass]="error?.message ? 'block' : 'hidden' ">{{error?.message}}</div>
+    </div>
+  <input class="border border-color-light-gray p-3 inset-0 outline-none w-full rounded-xl" [ngClass]="error?.message ? 'border-color-berry-red' : 'border-color-light-gray'"
+   type={{type}} placeholder={{placeholder}}  name={{name}} formControlName={{name}}  />
+</div>

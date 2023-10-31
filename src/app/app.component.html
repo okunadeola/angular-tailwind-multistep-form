@@ -1,0 +1,41 @@
+<!-- <router-outlet></router-outlet> -->
+
+
+<div class='h-screen w-full grid place-items-center bg-color-light-gray'>
+
+
+
+    <div
+        class='w-full xl:w-4/6  xlg:w-[90%] h-full xlg:h-[73%] bg-transparent xlg:bg-color-whiten rounded-xl xlg:p-3  relative'>
+
+        <div class='flex flex-col  xlg:gap-x-3 gap-0 md:gap-x-4 h-full w-full  xlg:flex-row'>
+
+
+            <app-stepper></app-stepper>
+
+            <div [ngSwitch]="step"
+                class='flex-1 xlg:py-7 py-7 px-9 bg-color-whiten absolute xlg:relative top-[9rem]  right-0 left-0 overflow-hidden  xlg:top-0 min-h-[60%] xlg:h-auto  xlg:rounded-none rounded-2xl  2xl:mx-0 mx-4'>
+
+                <div *ngSwitchCase="0" class="min-h-[100%]">
+                    <app-personal-info></app-personal-info>
+                </div>
+                <div *ngSwitchCase="1" class="min-h-[100%] ">
+                    <app-select-plan class="h-full"></app-select-plan>
+                </div>
+                <div *ngSwitchCase="2" class="min-h-[100%]">
+                    <app-addon></app-addon>
+                </div>
+                <div *ngSwitchCase="3" class="min-h-[100%] ">
+                    <app-summary ></app-summary>
+                </div>
+                <div *ngSwitchCase="4" class="min-h-[100%] p-0 m-0 block">
+                    <app-thnak-you></app-thnak-you>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

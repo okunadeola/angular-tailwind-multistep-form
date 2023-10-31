@@ -1,0 +1,19 @@
+
+<div class="xlg:h-[30rem] h-full">
+
+  <div class="flex flex-col w-full xlg:h-[30rem] h-full">
+      <app-title [title]="title" [desc]="desc"></app-title>
+    
+      <div className='mt-2 flex flex-col gap-y-5 xlg:h-[20rem] h-full bg-cyan-500'>
+         
+          <app-plan-choices [options]="planOptions" [selectedPlan]="planChoice.planName"  [isYearPlan]="isYearPlan" (selectPlan)="selectPlanChoice($event)"></app-plan-choices>
+  
+          <app-duration-toggler [isYearPlan]="isYearPlan" (toggle)="toggleDuration($event)"></app-duration-toggler>
+  
+      </div>
+    
+      <app-button-container  (nextAction)="proceedToNext()"></app-button-container>
+    </div>
+
+
+</div>

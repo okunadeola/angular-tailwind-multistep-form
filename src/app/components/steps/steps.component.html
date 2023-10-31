@@ -1,0 +1,17 @@
+
+
+<div class='flex xlg:flex-col gap-y-7 justify-center xlg:justify-start gap-x-5  xlg:gap-x-0 '>
+
+    <div *ngFor="let steper of stepInfo;" (click)="attemptSeekStep(steper.stepNo -1)" class="flex items-center gap-x-4" [ngClass]="{'cursor-pointer':isCompleted }"
+    >
+        <div class="p-5 w-9 h-9 border-2 flex items-center justify-center    
+        border-color-primary-light-blue  rounded-full  font-medium text-lg "
+        [ngClass]="step +1 == steper.stepNo ||( steper.stepNo === 4 && step === 4) ? ' bg-color-primary-light-blue text-color-primary-marine-blue' : 'text-color-primary-light-blue' "
+        >{{steper.stepNo}}</div>
+        <div class=' hidden xlg:block'>
+            <div class=' text-color-primary-pastel-blue text-sm'>STEP {{steper.stepNo}}</div>
+            <div class=' font-medium text-color-whiten text-sm'>{{steper?.stepDesc?.toLocaleUpperCase()}}</div>
+        </div>
+    </div>
+    
+</div>

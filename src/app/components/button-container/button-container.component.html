@@ -1,0 +1,16 @@
+<div class=' bg-color-whiten h-20 xlg:15  xlg:absolute xlg:bottom-2 xlg:w-auto xlg:max-w-[100%] xlg:mx-9 fixed bottom-0 w-full right-0 left-0'>
+    <div class='flex w-full  gap-x-6 justify-between items-center xlg:px-0 px-6 h-full'>
+
+        <div *ngIf='data?.step > 0 && data?.step <= 3; then button else  nothing'>
+        </div>
+
+        <ng-template #button>
+            <app-prev-button></app-prev-button>
+        </ng-template>
+        <ng-template #nothing>
+            <div></div>
+        </ng-template>
+
+      <app-next-button (toNext)="nextEmitter()" [step]="data.step"></app-next-button>
+    </div>
+</div>

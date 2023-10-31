@@ -1,0 +1,141 @@
+<div class="flex flex-col w-full">
+  <app-title [title]="title" [desc]="desc"></app-title>
+
+  <div class="mt-5">
+    <form
+      [formGroup]="formBuilder"
+      class="flex flex-col gap-y-7 xlg:gap-y-4"
+    >
+
+    <!-- name -->
+      <div>
+        <div class="flex justify-between mb-2">
+          <label
+            for="name"
+            class="text-color-primary-marine-blue text-md font-medium"
+            >FullName</label
+          >
+
+          <div *ngIf="fc.name.touched && fc.name.invalid">
+            <div
+              class="text-color-berry-red font-medium"
+              [ngClass]="
+                fc.name.errors && fc.name.errors['required'] 
+                  ? 'block'
+                  : 'hidden'
+              "
+            >
+              Name is required
+            </div>
+          </div>
+        </div>
+        <input
+          class="border p-3 inset-0 outline-none w-full rounded-xl"
+          [ngClass]="
+            fc.name.touched && fc.name.invalid && fc.name.errors['required']
+              ? 'border-color-berry-red'
+              : 'border-color-light-gray'
+          "
+          type="text"
+          placeholder="Enter your fullname"
+          name="name"
+          formControlName="name"
+        />
+      </div>
+
+
+      <!-- email -->
+      <div>
+        <div class="flex justify-between mb-2">
+          <label
+            for="email"
+            class="text-color-primary-marine-blue text-md font-medium"
+            >Email</label
+          >
+
+          <div *ngIf="fc.email.touched && fc.email.invalid">
+            <div
+              class="text-color-berry-red font-medium"
+              [ngClass]="
+                fc.email.errors && fc.email.invalid && (fc.email.errors['required'] || fc.email.errors['email'])
+                  ? 'block'
+                  : 'hidden'
+              "
+            >
+            {{fc.email.errors && fc.email.invalid && fc.email.errors['required'] ? 'Email is required' : 'Invalid email address'}}
+            
+            </div>
+          </div>
+        </div>
+        <input
+          class="border p-3 inset-0 outline-none w-full rounded-xl"
+          [ngClass]="
+            fc.email.touched && fc.email.invalid && (fc.email.errors['required'] || fc.email.errors['email'])
+              ? 'border-color-berry-red'
+              : 'border-color-light-gray'
+          "
+          type="email"
+          placeholder="Enter your fullname"
+          name="email"
+          formControlName="email"
+        />
+      </div>
+
+
+
+      <!-- phone -->
+      <div>
+        <div class="flex justify-between mb-2">
+          <label
+            for="phone"
+            class="text-color-primary-marine-blue text-md font-medium"
+            >Phone</label
+          >
+
+          <div *ngIf="fc.phone.touched && fc.phone.invalid">
+            <div
+              class="text-color-berry-red font-medium"
+              [ngClass]="
+                fc.phone.errors && fc.phone.invalid && (fc.phone.errors['required'] || fc.phone.errors['pattern'])
+                  ? 'block'
+                  : 'hidden'
+              "
+            > 
+            {{ fc.phone.errors && fc.email.invalid && fc.phone.errors['required'] ? 'Phone number is required' : 'Invalid phone number'}}
+              
+            </div>
+          </div>
+        </div>
+        <input
+          class="border p-3 inset-0 outline-none w-full rounded-xl"
+          [ngClass]="
+            fc.phone.touched && fc.phone.invalid && (fc.phone.errors['required'] || fc.phone.errors['pattern'])
+              ? 'border-color-berry-red'
+              : 'border-color-light-gray'
+          "
+          type="number"
+          placeholder="Enter your phone number"
+          name="phone"
+          formControlName="phone"
+        />
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+  </div>
+
+
+  <app-button-container  (nextAction)="proceedToNext()"></app-button-container>
+</div>
+
+
