@@ -58,7 +58,7 @@ export class PlanserviceService {
     window.localStorage.setItem('subplan', JSON.stringify(data))
     return this.planService.next(data)
   }
-
+ 
   seek(payload: number){
     const stepUIdata = {...this.planService.value, step: payload}
     window.localStorage.setItem('subplan', JSON.stringify(stepUIdata))
